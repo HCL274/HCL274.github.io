@@ -934,13 +934,472 @@ v">
 <td align="center">int  read(char cbuf[], int off, int len)</td>
 <td align="center">读取len个字符，然后从cbuf[off]开始存放，返回读取的字符个数</td>
 </tr>
+</tbody></table>
+<p>具体用法如下：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class BufferedReaderTest &#123;
+    public static void main(String[] args) throws IOException &#123;
+        InputStreamReader is &#x3D; new InputStreamReader(System.in);
+        BufferedReader buf &#x3D; new BufferedReader(is);
+        System.out.print(&quot;read()方法输入：&quot;);
+        int read &#x3D; buf.read(); &#x2F;&#x2F;read()方法输入
+        int read1 &#x3D; buf.read();&#x2F;&#x2F;读取换行符，防止被readLine()读取到
+        System.out.print(&quot;readLine()方法输入：&quot;);
+        String s &#x3D; buf.readLine();&#x2F;&#x2F;readLine()方法开始输入
+        char[] a&#x3D;new char[10];
+        System.out.print(&quot;read(char cbuf[], int off, int len)方法输入：&quot;);
+        int num &#x3D; buf.read(a, 0, 10);&#x2F;&#x2F; read(char cbuf[], int off, int len)方法输入
+
+        System.out.println(&quot;read()方法输出：&quot;+(char) read);
+        System.out.println(&quot;readLine()方法输出：&quot;+s);
+        System.out.print(&quot;read(char cbuf[], int off, int len)方法输出：&quot;);
+        for(char c:a)&#123;
+            System.out.print(c);
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>输出内容如下：<img src="https://s2.loli.net/2022/11/09/64u5GSQn7R8POwd.png" alt="image-20221109182524512"></p>
+<p><strong>注意</strong></p>
+<p>readLine()方法输入时应注意不要读到换行符。</p>
+</li>
+</ol>
+<ul>
+<li><h3 id="快速输入——StreamTokenizer类"><a href="#快速输入——StreamTokenizer类" class="headerlink" title="快速输入——StreamTokenizer类"></a>快速输入——StreamTokenizer类</h3><p>StreamTokenizer类接受输入流并将其解析为“标记”，允许一次读取一个标记</p>
+<p>注意：StreamTokenizer只能接收数字或字母，如果输入除空格和回车以外的字符<br>（如：~!@#$%^&amp;*()_+{}:&lt;&gt;?)无法识别，会显示null。</p>
+<p>同时，如果该输入字符串时却输入数字会显示null，该输入数字时输入字符串也会显示null。</p>
+</li>
+</ul>
+<ol>
+<li><p><em><strong>构造方法</strong></em></p>
+<table>
+<thead>
 <tr>
-<td align="center"></td>
-<td align="center"></td>
+<th align="center">常用方法名</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">StreamTokenizer(Reader r)</td>
+<td align="center">接收一个Reader类的实例</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><em><strong>成员方法</strong></em></p>
+<table>
+<thead>
+<tr>
+<th align="center">常用方法名</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">int nextToken()</td>
+<td align="center">解析此tokenizer的输入流中的下一个标记， 每次调用sval或nval时候都需要调用一下</td>
+</tr>
+<tr>
+<td align="center">String sval()</td>
+<td align="center">输入一个字符串</td>
+</tr>
+<tr>
+<td align="center">double nval()</td>
+<td align="center">输入数字</td>
+</tr>
+<tr>
+<td align="center">static int TT_EOL</td>
+<td align="center">一个常量，表示已读取行尾</td>
+</tr>
+</tbody></table>
+<p>具体用法如下：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.StreamTokenizer;
+
+public class StreamTokenizerTest &#123;
+    public static void main(String[] args) throws IOException &#123;
+        StreamTokenizer in &#x3D; new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
+
+        System.out.print(&quot;字符串输入：&quot;);
+        in.nextToken(); &#x2F;&#x2F; 解析下一个标记。每次调用sval或nval时候都需要调用一下
+        String str &#x3D; in.sval; &#x2F;&#x2F; 输入字符串
+        System.out.println(&quot;字符串输出:&quot;+str);
+
+        System.out.print(&quot;数字输入：&quot;);
+        in.nextToken(); &#x2F;&#x2F; 解析下一个标记。每次调用sval或nval时候都需要调用一下
+        double num &#x3D; in.nval; &#x2F;&#x2F; 输入数字
+        System.out.println(&quot;数字输出：&quot;+num);
+
+        &#x2F;** 循环输入字符串 *&#x2F;
+            while (in.nextToken() !&#x3D; StreamTokenizer.TT_EOL) &#123; &#x2F;&#x2F; 当下一个输入不是行末尾时
+                String str2 &#x3D; in.sval; &#x2F;&#x2F; 输入字符串
+                System.out.println(str2);
+            &#125;
+
+
+        &#x2F;** 循环输入数字 *&#x2F;
+            while (in.nextToken() !&#x3D; StreamTokenizer.TT_EOL) &#123; &#x2F;&#x2F; 当下一个输入不是行末尾时
+                double num2 &#x3D; in.nval; &#x2F;&#x2F; 输入数字
+                System.out.println(num2);
+            &#125;
+
+    &#125;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<ul>
+<li><h3 id="快速输出——PrintWriter类"><a href="#快速输出——PrintWriter类" class="headerlink" title="快速输出——PrintWriter类"></a>快速输出——PrintWriter类</h3>这种方式只能读取数字和字母字符串， 不能读取空格和其他字符。</li>
+</ul>
+<ol>
+<li><p><em><strong>构造方法</strong></em></p>
+<table>
+<thead>
+<tr>
+<th align="center">常用方法名</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">PrintWriter(OutputStream out)</td>
+<td align="center">从现有的OutputStream创建一个没有自动行刷新的新PrintWriter</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><em><strong>成员方法</strong></em></p>
+<table>
+<thead>
+<tr>
+<th align="center">常用方法名</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">print()</td>
+<td align="center">打印一个常量</td>
+</tr>
+<tr>
+<td align="center">println()</td>
+<td align="center">打印一个常量并终止该行</td>
+</tr>
+<tr>
+<td align="center">flush()</td>
+<td align="center">刷新流，应在每次输出后调用</td>
 </tr>
 </tbody></table>
 </li>
 </ol>
+<ul>
+<li><h3 id="快速输出——BufferedWriter类"><a href="#快速输出——BufferedWriter类" class="headerlink" title="快速输出——BufferedWriter类"></a>快速输出——BufferedWriter类</h3><p>从字符输入流中读取文本，缓冲字符，以便有效地读取字符，数组和行。</p>
+<p>可以指定缓冲区大小，或者可以使用默认大小。 对于大多数用途，默认值足够大。</p>
+<p>主要使用 BufferedWriter类中的 write() 类进行输出。 <strong>当数据量大的时候一定要使用这个类进行输出，谨记！</strong></p>
+</li>
+</ul>
+<ol>
+<li><p><em><strong>构造方法</strong></em></p>
+<table>
+<thead>
+<tr>
+<th align="center">常用方法名</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">BufferedReader(Reader in)</td>
+<td align="center">创建使用默认大小的输入缓冲区的缓冲字符输出流</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><em><strong>成员方法</strong></em></p>
+<table>
+<thead>
+<tr>
+<th align="center">常用方法名</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">write(int c)</td>
+<td align="center">输出一个字符</td>
+</tr>
+<tr>
+<td align="center">write(char[] cbuf,  int off, int len)</td>
+<td align="center">写一个字符数组的一部分</td>
+</tr>
+<tr>
+<td align="center">write(String s, int off,  int len)</td>
+<td align="center">写一个字符串的一部分</td>
+</tr>
+<tr>
+<td align="center">flush()</td>
+<td align="center">刷新流，每次输出后调用</td>
+</tr>
+</tbody></table>
+<p><strong>注意</strong></p>
+<p> 需要注意的是 write() 不能直接输出int类型，因为write(int a) 会输出其对应的ASCii码的字符</p>
+<p>所以当需要输出一个int类型的变量时， 可以用Integer.toString(int a)方法 将其变为字符串形式输出。或者使用 + 拼接一个字符串，这样 参数整体就是一个字符串了，比如加一个换行符。</p>
+</li>
+</ol>
+<ul>
+<li><h3 id="Math类"><a href="#Math类" class="headerlink" title="Math类"></a>Math类</h3><table>
+<thead>
+<tr>
+<th align="center">常用方法名</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">abs(int a)</td>
+<td align="center">绝对值</td>
+</tr>
+<tr>
+<td align="center">ceil(double d)</td>
+<td align="center">向上取整</td>
+</tr>
+<tr>
+<td align="center">floor(double d)</td>
+<td align="center">向下取整</td>
+</tr>
+<tr>
+<td align="center">max(int a,int b)</td>
+<td align="center">最大值</td>
+</tr>
+<tr>
+<td align="center">pow(double a,double b)</td>
+<td align="center">a的b次幂</td>
+</tr>
+<tr>
+<td align="center">random()</td>
+<td align="center">随机数[0.0,1.0]</td>
+</tr>
+<tr>
+<td align="center">round(float f)</td>
+<td align="center">四舍五入</td>
+</tr>
+<tr>
+<td align="center">sqrt(double d)</td>
+<td align="center">算术平方根</td>
+</tr>
+</tbody></table>
+</li>
+<li><h3 id="Random类"><a href="#Random类" class="headerlink" title="Random类"></a>Random类</h3></li>
+</ul>
+<ol>
+<li><p><em><strong>构造方法</strong></em></p>
+<table>
+<thead>
+<tr>
+<th align="center">常用方法名</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Random()</td>
+<td align="center">以当前时间毫秒值作为种子，创建Random对象</td>
+</tr>
+<tr>
+<td align="center">Random(long seed)</td>
+<td align="center">以指定种子创建Random对象</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><em><strong>成员方法</strong></em></p>
+<table>
+<thead>
+<tr>
+<th align="center">常用方法名</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">nextInt()n</td>
+<td align="center">生成1个int类型范围的随机数</td>
+</tr>
+<tr>
+<td align="center">nextInt(int n)</td>
+<td align="center">产生1个[0,n-1]范围内的随机数</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<ul>
+<li><h3 id="Date类"><a href="#Date类" class="headerlink" title="Date类"></a>Date类</h3>表示特定的瞬间，精确到毫秒值</li>
+</ul>
+<ol>
+<li><p><em><strong>构造方法</strong></em></p>
+<table>
+<thead>
+<tr>
+<th align="center">常用方法名</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Date()</td>
+<td align="center">以当前时间毫秒值创建Date对象</td>
+</tr>
+<tr>
+<td align="center">Date(long time)</td>
+<td align="center">以指定的毫秒值创建Date对象</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><em><strong>成员方法</strong></em></p>
+<table>
+<thead>
+<tr>
+<th align="center">常用方法名</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">long getTime()</td>
+<td align="center">获取Date对象的毫秒值</td>
+</tr>
+<tr>
+<td align="center">setTime(long time)</td>
+<td align="center">设置Data对象的毫秒值</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<ul>
+<li><h3 id="DateFormat类"><a href="#DateFormat类" class="headerlink" title="DateFormat类"></a>DateFormat类</h3></li>
+<li><h3 id="SimpleDateFormat类"><a href="#SimpleDateFormat类" class="headerlink" title="SimpleDateFormat类"></a>SimpleDateFormat类</h3></li>
+<li><h3 id="Calendar类"><a href="#Calendar类" class="headerlink" title="Calendar类"></a>Calendar类</h3></li>
+<li><h3 id="BigInteger类"><a href="#BigInteger类" class="headerlink" title="BigInteger类"></a>BigInteger类</h3></li>
+</ul>
+<ol>
+<li><p><em><strong>构造方法</strong></em></p>
+<table>
+<thead>
+<tr>
+<th align="center">常用方法名</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">BigInteger(String s)</td>
+<td align="center">通过字符串创建BigInteger对象</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><em><strong>成员方法</strong></em></p>
+<table>
+<thead>
+<tr>
+<th align="center">常用方法名</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">add(BigInteger bi)</td>
+<td align="center">大数相加</td>
+</tr>
+<tr>
+<td align="center">subtract(BigInteger bi)</td>
+<td align="center">大数相减</td>
+</tr>
+<tr>
+<td align="center">multiply(BigInteger bi)</td>
+<td align="center">大数相乘</td>
+</tr>
+<tr>
+<td align="center">divide(BigInteger bi)</td>
+<td align="center">大数相除</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<ul>
+<li><h3 id="BigDecimal类"><a href="#BigDecimal类" class="headerlink" title="BigDecimal类"></a>BigDecimal类</h3>用于解决浮点型运算精度损失的问题</li>
+</ul>
+<ol>
+<li><p><em><strong>构造方法</strong></em></p>
+<table>
+<thead>
+<tr>
+<th align="center">常用方法名</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">BigDecimal(String s)</td>
+<td align="center">通过字符创建BigDecimal对象</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><em><strong>成员方法</strong></em></p>
+<table>
+<thead>
+<tr>
+<th align="center">常用方法名</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">add(BigDecimal bi)</td>
+<td align="center">大数相加</td>
+</tr>
+<tr>
+<td align="center">subtract(BigDecimal bi)</td>
+<td align="center">大数相减</td>
+</tr>
+<tr>
+<td align="center">multiply(BigDecimalbi)</td>
+<td align="center">大数相乘</td>
+</tr>
+<tr>
+<td align="center">divide(BigDecimalbi)</td>
+<td align="center">大数相除</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<ul>
+<li><h3 id="Arrays工具类"><a href="#Arrays工具类" class="headerlink" title="Arrays工具类"></a>Arrays工具类</h3><p>该类包含用于操作数组的各种方法（例如排序和搜索）。此类还包含一个静态工厂，允许将数组视为链表。</p>
+<p>如果指定的数组引用为null，则此类中的方法都抛出<code>NullPointerException</code>  ，除非另有说明。</p>
+<table>
+<thead>
+<tr>
+<th align="center">常用方法名</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">int binarySearch(Object[] a, Object key)</td>
+<td align="center">二分法查找给定值的索引，数组在调用之前必须是排序好的</td>
+</tr>
+<tr>
+<td align="center">boolean	equals(int[] a,int[] a1)</td>
+<td align="center">两个指定int型数组彼此相等，则返回true，也就是两个数组以相同顺序包含相同的元素，方法适用于（byte,short.,long等）</td>
+</tr>
+<tr>
+<td align="center">void	fill(int[] a,int val)</td>
+<td align="center">将指定的int值分配给数组中的所有元素，方法也同样适用于（byte,short.,long等）</td>
+</tr>
+<tr>
+<td align="center">void	sort(int[] a)</td>
+<td align="center">对数组中的元素进行升序排列，方法也同样适用于（byte,short.,long等）</td>
+</tr>
+<tr>
+<td align="center">int	copyof(int[] a,int newLength)</td>
+<td align="center">使用零复制指定的数组，截断或填充（如有必要），以使副本具有指定的长度。 方法也同样适用于（byte,short.,long等）</td>
+</tr>
+<tr>
+<td align="center">string  toString(int[] a)</td>
+<td align="center">返回指定数组的字符串表示形式，方法也同样适用于（byte,short.,long等）</td>
+</tr>
+<tr>
+<td align="center">List  asList(int[] a,int[] b)</td>
+<td align="center">返回由指定数组支持的固定大小的列表，方法也同样适用于（byte,short.,long等）</td>
+</tr>
+</tbody></table>
+</li>
+<li><h3 id="Collections工具类"><a href="#Collections工具类" class="headerlink" title="Collections工具类"></a>Collections工具类</h3></li>
+</ul>
 
                 
             </div>
