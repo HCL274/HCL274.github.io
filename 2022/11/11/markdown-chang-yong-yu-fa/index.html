@@ -54,7 +54,9 @@ Markdown 是一种可以使用普通文本编辑器编写的轻量级标记语�
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
 
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
 
 
 
@@ -398,7 +400,17 @@ Markdown 是一种可以使用普通文本编辑器编写的轻量级标记语�
                 
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.1k
+                </div>
+                
 
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    3 分
+                </div>
                 
 
                 
@@ -461,9 +473,9 @@ ___粗斜体___<span aria-hidden="true" class="line-numbers-rows"><span></span><
 &lt;链接地址&gt;
 
 举例：
-[我的博客](https:&#x2F;&#x2F;hcl274.github.io&#x2F;)
+[我的博客](https://hcl274.github.io/)
 或
-&lt;https:&#x2F;&#x2F;hcl274.github.io&#x2F;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;https://hcl274.github.io/&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>显示效果如下：</p>
 <p><img src="https://s2.loli.net/2022/11/12/9Q3zw7yBhbnXRoL.png" alt="超链接"></p>
@@ -495,7 +507,7 @@ ___粗斜体___<span aria-hidden="true" class="line-numbers-rows"><span></span><
 <li><h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>引用的格式是在符号 <code>&gt;</code> 后面书写文字，或者加一个空格再加文字，如下：</p>
 <pre class="line-numbers language-none"><code class="language-none">&gt; 这是一个引用：
 &gt; 欢迎前往我的博客
-&gt; &lt;https:&#x2F;&#x2F;hcl274.github.io&#x2F;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+&gt; &lt;https://hcl274.github.io/&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>显示效果如下：</p>
 <p><img src="https://s2.loli.net/2022/11/12/6ZPGKLsihaTnvJ7.png" alt="引用"></p>
@@ -518,7 +530,7 @@ Hello,welcome to my blog
 <p><img src="https://s2.loli.net/2022/11/12/lGNb4zQHYcaPieA.png" alt="分割线"></p>
 </li>
 <li><h3 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h3><p>下划线的使用，在需要添加下划线的文字首部和尾部加上 <code>&lt;u&gt;文本&lt;/u&gt;</code>，如下：</p>
-<pre class="line-numbers language-none"><code class="language-none">&lt;u&gt;这行文字已被添加下划线&lt;&#x2F;u&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">&lt;u&gt;这行文字已被添加下划线&lt;/u&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>显示效果如下：</p>
 <p><img src="https://s2.loli.net/2022/11/12/Jrm4kPcnH8aSqeF.png" alt="下划线"></p>
@@ -548,22 +560,22 @@ Hello,welcome to my blog
 <li><h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3></li>
 <li><h3 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h3></li>
 <li><h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><p>如果在一个行内需要引用代码，只要用反引号引起来就好，如下：</p>
-<pre class="line-numbers language-none"><code class="language-none">Use the &#96;printf()&#96; function.<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">Use the `printf()` function.<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>显示效果如下：</p>
 <p><img src="https://s2.loli.net/2022/11/12/LwIlOWyubZdmvFs.png" alt="行内代码块"></p>
 <p>如果是在一个块内需要引用代码，则在需要高亮的代码块的前一行及后一行使用三个反引号，同时 <strong>第一行反引号后面表示代码块所使用的语言</strong>，如下：</p>
-<pre class="line-numbers language-none"><code class="language-none">&#96;&#96;&#96;cpp
+<pre class="line-numbers language-none"><code class="language-none">```cpp
    #include&lt;iostream&gt;
-   int main()&#123;
-   	printf(&quot;HelloWorld&quot;);
-   &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   int main(){
+   	printf("HelloWorld");
+   }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>显示效果如下：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include&lt;iostream&gt;
-int main()&#123;
-	printf(&quot;HelloWorld&quot;);
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+int main(){
+	printf("HelloWorld");
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 <p>支持以下语言种类：</p>
 <pre class="line-numbers language-none"><code class="language-none">bash
@@ -1300,7 +1312,7 @@ new Valine({
     
 
     <div class="container row center-align"
-         style="margin-bottom: 0px !important;">
+         style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
@@ -1309,7 +1321,14 @@ new Valine({
             <a href="/about" target="_blank">hcl</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+
+             <br>
+                        <span id="sitetime"></span></span><span class="my-face">ღゝ◡╹)ノ♡</span>
+
             <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">9.7k</span>
             
             
             
@@ -1320,6 +1339,8 @@ new Valine({
                 &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
                     <span id="busuanzi_value_site_pv" class="white-color"></span>
             </span>
+
+
             
             
                 <span id="busuanzi_container_site_uv">
@@ -1330,6 +1351,96 @@ new Valine({
             <br>
 
             <!-- 运行天数提醒. -->
+            
+<!--                 <span id="sitetime"> Loading ...</span> -->
+<!--                 <script> -->
+                <script language=javascript>
+                    function siteTime() {
+                        window.setTimeout("siteTime()", 1000);
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+                        year - 作为date对象的年份，为4位年份值
+                        month - 0-11之间的整数，做为date对象的月份
+                        day - 1-31之间的整数，做为date对象的天数
+                        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+                        minutes - 0-59之间的整数，做为date对象的分钟数
+                        seconds - 0-59之间的整数，做为date对象的秒数
+                        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+                        var t1 = Date.UTC(2022, 10, 21, 00, 00, 00); //北京时间2018-2-13 00:00:00
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+                        document.getElementById("sitetime").innerHTML = "本站已勉强运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+                    siteTime();
+//                 </script>
+
+<!-- //                     var calcSiteTime = function () { -->
+<!-- //                         var seconds = 1000; -->
+<!-- //                         var minutes = seconds * 60; -->
+<!-- //                         var hours = minutes * 60; -->
+<!-- //                         var days = hours * 24; -->
+<!-- //                         var years = days * 365; -->
+<!-- //                         var today = new Date(); -->
+<!-- //                         var startYear = "2022"; -->
+<!-- //                         var startMonth = "10"; -->
+<!-- //                         var startDate = "21"; -->
+<!-- //                         var startHour = "0"; -->
+<!-- //                         var startMinute = "0"; -->
+<!-- //                         var startSecond = "0"; -->
+<!-- //                         var todayYear = today.getFullYear(); -->
+<!-- //                         var todayMonth = today.getMonth() + 1; -->
+<!-- //                         var todayDate = today.getDate(); -->
+<!-- //                         var todayHour = today.getHours(); -->
+<!-- //                         var todayMinute = today.getMinutes(); -->
+<!-- //                         var todaySecond = today.getSeconds(); -->
+<!-- //                         var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond); -->
+<!-- //                         var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond); -->
+<!-- //                         var diff = t2 - t1; -->
+<!-- //                         var diffYears = Math.floor(diff / years); -->
+<!-- //                         var diffDays = Math.floor((diff / days) - diffYears * 365); -->
+<!-- //  -->
+<!-- //                         // 区分是否有年份. -->
+<!-- //                         var language = 'zh-CN'; -->
+<!-- //                         if (startYear === String(todayYear)) { -->
+<!-- //                             document.getElementById("year").innerHTML = todayYear; -->
+<!-- //                             var daysTip = 'This site has been running for ' + diffDays + ' days'; -->
+<!-- //                             if (language === 'zh-CN') { -->
+<!-- //                                 daysTip = '本站已安全运行 ' + diffDays + ' 天'; -->
+<!-- //                             } else if (language === 'zh-HK') { -->
+<!-- //                                 daysTip = '本站已運行 ' + diffDays + ' 天'; -->
+<!-- //                             } -->
+<!-- //                             document.getElementById("sitetime").innerHTML = daysTip; -->
+<!-- //                         } else { -->
+<!-- //                             document.getElementById("year").innerHTML = startYear + " - " + todayYear; -->
+<!-- //                             var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and ' -->
+<!-- //                                 + diffDays + ' days'; -->
+<!-- //                             if (language === 'zh-CN') { -->
+<!-- //                                 yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天'; -->
+<!-- //                             } else if (language === 'zh-HK') { -->
+<!-- //                                 yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天'; -->
+<!-- //                             } -->
+<!-- //                             document.getElementById("sitetime").innerHTML = yearsAndDaysTip; -->
+<!-- //                         } -->
+<!-- //                     } -->
+<!-- //  -->
+<!-- //                     calcSiteTime(); -->
+                </script>
             
             <br>
             
@@ -1360,10 +1471,6 @@ new Valine({
 
 
 
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
 
 </div>
     </div>

@@ -8,8 +8,8 @@
     <meta name="description" content="
 问题描述
 
-问题分析刚开始的想法是，定义一个二维数组，将每一行的数字都存进去，但是因为N&amp;lt;&amp;#x3D;1000000000，开二维数组导致内存超限。
-​		仔细思考后发现，既然按行不行，那就按列来算：第一列全为1，第二列为从1开始的">
+问题分析刚开始的想法是，定义一个二维数组，将每一行的数字都存进去，但是因为N&amp;lt;=1000000000，开二维数组导致内存超限。
+​		仔细思考后发现，既然按行不行，那就按列来算：第一列全为1，第二列为从1开始的自然数列，">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -57,7 +57,9 @@
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
 
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
 
 
 
@@ -405,7 +407,17 @@
                 
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    433
+                </div>
+                
 
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    1 分
+                </div>
                 
 
                 
@@ -425,42 +437,42 @@
                 <ul>
 <li><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p><img src="https://s2.loli.net/2022/10/29/4yhwpENKvXW89iS.png" alt="image-20221029200859350"></p>
 </li>
-<li><h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p><del>刚开始的想法是，定义一个二维数组，将每一行的数字都存进去，但是因为<font color='red'>N&lt;&#x3D;1000000000</font>，开二维数组导致内存超限。</del></p>
+<li><h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p><del>刚开始的想法是，定义一个二维数组，将每一行的数字都存进去，但是因为<font color="red">N&lt;=1000000000</font>，开二维数组导致内存超限。</del></p>
 <p>​		仔细思考后发现，既然按行不行，那就按列来算：第一列全为1，第二列为从1开始的自然数列，第三列的数为同行的第二列的数和它上一行第二列的数相乘以后除以二的结果。</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">a[n][3]&#x3D;a[n][2]*a[n-1][2]&#x2F;2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">a[n][3]=a[n][2]*a[n-1][2]/2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>​		然后推断出，第三列的数大于1000000000时，相邻的第二列数为44723，这一行的个数为44724，这是第44724行，所以可以开一个一维数组a[44725],然后公式<font color='red'>a[j]&#x3D;a[j]+a[j-1]</font>,从每一行的最左端的数看为a[n]<font color='red'>(n为行数，n从0开始）</font>开始计算，将每一行的数都存入一维数组，然后从前一行的数推出后一行的数，如果遇到这个数就直接跳出，如果计算到第44723行的第三列数仍未找到，那这个数一定会出现在第二列的第N+1行。</p>
+<p>​		然后推断出，第三列的数大于1000000000时，相邻的第二列数为44723，这一行的个数为44724，这是第44724行，所以可以开一个一维数组a[44725],然后公式<font color="red">a[j]=a[j]+a[j-1]</font>,从每一行的最左端的数看为a[n]<font color="red">(n为行数，n从0开始）</font>开始计算，将每一行的数都存入一维数组，然后从前一行的数推出后一行的数，如果遇到这个数就直接跳出，如果计算到第44723行的第三列数仍未找到，那这个数一定会出现在第二列的第N+1行。</p>
 <p>代码如下：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">import java.util.Scanner;
 
-public class 杨辉三角 &#123;
+public class 杨辉三角 {
 
-    public static void main(String[] args) &#123;
-        long N,count&#x3D;0;
-        int i&#x3D;1,j &#x3D; 2,p;
-        Scanner scanner &#x3D; new Scanner(System.in);
-        N&#x3D;scanner.nextLong();
-       long[] a&#x3D;new long[44725];
-       a[0]&#x3D;1;&#x2F;&#x2F;初始化第一行
-       if(N&#x3D;&#x3D;1)&#123;
+    public static void main(String[] args) {
+        long N,count=0;
+        int i=1,j = 2,p;
+        Scanner scanner = new Scanner(System.in);
+        N=scanner.nextLong();
+       long[] a=new long[44725];
+       a[0]=1;//初始化第一行
+       if(N==1){
            System.out.println(1);
            return;
-       &#125;
-       for(i&#x3D;1;i&lt;44725;i++)&#123;&#x2F;&#x2F;从第二行开始
-           for(j&#x3D;i;j&gt;&#x3D;1;j--)&#123;
-               &#x2F;&#x2F;重点
-               a[j]&#x3D;a[j]+a[j-1];
-               &#x2F;&#x2F;
+       }
+       for(i=1;i&lt;44725;i++){//从第二行开始
+           for(j=i;j&gt;=1;j--){
+               //重点
+               a[j]=a[j]+a[j-1];
+               //
                count++;
-               if(a[j]&#x3D;&#x3D;N)&#123;
-                   System.out.println(count+i);&#x2F;&#x2F;加i是因为每一行都没有算a[0]
+               if(a[j]==N){
+                   System.out.println(count+i);//加i是因为每一行都没有算a[0]
                    return;
-               &#125;
-           &#125;
-       &#125;
-        System.out.println(N*(N+1)&#x2F;2+2);&#x2F;&#x2F;计算第二列第N+1行的数是第几个
-    &#125;
-&#125;
+               }
+           }
+       }
+        System.out.println(N*(N+1)/2+2);//计算第二列第N+1行的数是第几个
+    }
+}
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 
@@ -1191,7 +1203,7 @@ new Valine({
     
 
     <div class="container row center-align"
-         style="margin-bottom: 0px !important;">
+         style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
@@ -1200,7 +1212,14 @@ new Valine({
             <a href="/about" target="_blank">hcl</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+
+             <br>
+                        <span id="sitetime"></span></span><span class="my-face">ღゝ◡╹)ノ♡</span>
+
             <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">9.7k</span>
             
             
             
@@ -1211,6 +1230,8 @@ new Valine({
                 &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
                     <span id="busuanzi_value_site_pv" class="white-color"></span>
             </span>
+
+
             
             
                 <span id="busuanzi_container_site_uv">
@@ -1221,6 +1242,96 @@ new Valine({
             <br>
 
             <!-- 运行天数提醒. -->
+            
+<!--                 <span id="sitetime"> Loading ...</span> -->
+<!--                 <script> -->
+                <script language=javascript>
+                    function siteTime() {
+                        window.setTimeout("siteTime()", 1000);
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+                        year - 作为date对象的年份，为4位年份值
+                        month - 0-11之间的整数，做为date对象的月份
+                        day - 1-31之间的整数，做为date对象的天数
+                        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+                        minutes - 0-59之间的整数，做为date对象的分钟数
+                        seconds - 0-59之间的整数，做为date对象的秒数
+                        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+                        var t1 = Date.UTC(2022, 10, 21, 00, 00, 00); //北京时间2018-2-13 00:00:00
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+                        document.getElementById("sitetime").innerHTML = "本站已勉强运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+                    siteTime();
+//                 </script>
+
+<!-- //                     var calcSiteTime = function () { -->
+<!-- //                         var seconds = 1000; -->
+<!-- //                         var minutes = seconds * 60; -->
+<!-- //                         var hours = minutes * 60; -->
+<!-- //                         var days = hours * 24; -->
+<!-- //                         var years = days * 365; -->
+<!-- //                         var today = new Date(); -->
+<!-- //                         var startYear = "2022"; -->
+<!-- //                         var startMonth = "10"; -->
+<!-- //                         var startDate = "21"; -->
+<!-- //                         var startHour = "0"; -->
+<!-- //                         var startMinute = "0"; -->
+<!-- //                         var startSecond = "0"; -->
+<!-- //                         var todayYear = today.getFullYear(); -->
+<!-- //                         var todayMonth = today.getMonth() + 1; -->
+<!-- //                         var todayDate = today.getDate(); -->
+<!-- //                         var todayHour = today.getHours(); -->
+<!-- //                         var todayMinute = today.getMinutes(); -->
+<!-- //                         var todaySecond = today.getSeconds(); -->
+<!-- //                         var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond); -->
+<!-- //                         var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond); -->
+<!-- //                         var diff = t2 - t1; -->
+<!-- //                         var diffYears = Math.floor(diff / years); -->
+<!-- //                         var diffDays = Math.floor((diff / days) - diffYears * 365); -->
+<!-- //  -->
+<!-- //                         // 区分是否有年份. -->
+<!-- //                         var language = 'zh-CN'; -->
+<!-- //                         if (startYear === String(todayYear)) { -->
+<!-- //                             document.getElementById("year").innerHTML = todayYear; -->
+<!-- //                             var daysTip = 'This site has been running for ' + diffDays + ' days'; -->
+<!-- //                             if (language === 'zh-CN') { -->
+<!-- //                                 daysTip = '本站已安全运行 ' + diffDays + ' 天'; -->
+<!-- //                             } else if (language === 'zh-HK') { -->
+<!-- //                                 daysTip = '本站已運行 ' + diffDays + ' 天'; -->
+<!-- //                             } -->
+<!-- //                             document.getElementById("sitetime").innerHTML = daysTip; -->
+<!-- //                         } else { -->
+<!-- //                             document.getElementById("year").innerHTML = startYear + " - " + todayYear; -->
+<!-- //                             var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and ' -->
+<!-- //                                 + diffDays + ' days'; -->
+<!-- //                             if (language === 'zh-CN') { -->
+<!-- //                                 yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天'; -->
+<!-- //                             } else if (language === 'zh-HK') { -->
+<!-- //                                 yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天'; -->
+<!-- //                             } -->
+<!-- //                             document.getElementById("sitetime").innerHTML = yearsAndDaysTip; -->
+<!-- //                         } -->
+<!-- //                     } -->
+<!-- //  -->
+<!-- //                     calcSiteTime(); -->
+                </script>
             
             <br>
             
@@ -1251,10 +1362,6 @@ new Valine({
 
 
 
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
 
 </div>
     </div>

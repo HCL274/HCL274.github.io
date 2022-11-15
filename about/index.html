@@ -53,7 +53,9 @@
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
 
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
 
 
 
@@ -409,7 +411,7 @@
                         ],
                         startDelay: 100,
                         typeSpeed: 100,
-                        loop: true,
+                        loop: false,
                         backSpeed: 100,
                         showCursor: true
                     });
@@ -520,10 +522,6 @@
 
 
 
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
-
 
                                 </div>
                             </div>
@@ -557,10 +555,6 @@
 
 
 
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
 
 
                         </div>
@@ -670,7 +664,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"笔记篇","value":2},{"name":"博客篇","value":1},{"name":"算法篇","value":1},{"name":"习题集","value":1},{"name":"项目篇","value":1}],
+                data: [{"name":"笔记篇","value":2},{"name":"博客篇","value":1},{"name":"项目篇","value":1},{"name":"习题集","value":1},{"name":"算法篇","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -694,7 +688,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["java","Markdown","hexo","matery","github","排序","算法","蓝桥杯","springboot","mybatisplus"]
+                data: ["java","Markdown","hexo","matery","github","springboot","mybatisplus","javaweb","蓝桥杯","排序"]
             }
         ],
         yAxis: [
@@ -738,58 +732,6 @@
 
 
                 
-                
-<div class="my-projects">
-    <div class="title center-align" data-aos="zoom-in-up">
-        <i class="fas fa-gift"></i>&nbsp;&nbsp;我的项目
-    </div>
-    <div class="row">
-        
-        
-        <div class="col s12 m6 l4" data-aos="fade-up">
-            <div class="info center-align">
-                <a href="http://github.com/blinkfox/hexo-theme-matery" class="icon"
-                   style="background: linear-gradient(to bottom right, #66BB6A 0%, #81C784 100%)" target="_blank">
-                    <i class="fas fa-file-alt"></i>
-                </a>
-                <div class="info-title">
-                    <a href="http://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
-                </div>
-                <div class="info-desc">This is a Hexo blog theme with &#39;Material Design&#39; and responsive design.</div>
-            </div>
-        </div>
-        
-        <div class="col s12 m6 l4" data-aos="fade-up">
-            <div class="info center-align">
-                <a href="https://github.com/blinkfox/fenix" class="icon"
-                   style="background: linear-gradient(to bottom right, #F06292 0%, #EF5350 100%)" target="_blank">
-                    <i class="fas fa-database"></i>
-                </a>
-                <div class="info-title">
-                    <a href="https://github.com/blinkfox/fenix" target="_blank">Fenix</a>
-                </div>
-                <div class="info-desc">这是 Spring Data JPA 复杂或动态 SQL 查询的扩展库。</div>
-            </div>
-        </div>
-        
-        <div class="col s12 m6 l4" data-aos="fade-up">
-            <div class="info center-align">
-                <a href="https://github.com/blinkfox/typora-vue-theme" class="icon"
-                   style="background: linear-gradient(to bottom right, #29B6F6 0%, #1E88E5 100%)" target="_blank">
-                    <i class="fas fa-file-alt"></i>
-                </a>
-                <div class="info-title">
-                    <a href="https://github.com/blinkfox/typora-vue-theme" target="_blank">typora-vue-theme</a>
-                </div>
-                <div class="info-desc">This is a typora theme inspired by Vue document style.</div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-                
 
                 
                 
@@ -815,10 +757,10 @@
         <div class="col s12 m6 l6" data-aos="fade-up">
             <div class="skillbar">
                 <div class="skillbar-title"
-                     style="background: linear-gradient(to right, #9900FF 0%, #CC66FF 100%); width: 80%">
+                     style="background: linear-gradient(to right, #9900FF 0%, #CC66FF 100%); width: 60%">
                     <span>JavaScript</span>
                 </div>
-                <div class="skill-bar-percent">80%</div>
+                <div class="skill-bar-percent">60%</div>
             </div>
         </div>
         
@@ -826,10 +768,10 @@
         <div class="col s12 m6 l6" data-aos="fade-up">
             <div class="skillbar">
                 <div class="skillbar-title"
-                     style="background: linear-gradient(to right, #2196F3 0%, #42A5F5 100%); width: 80%">
+                     style="background: linear-gradient(to right, #2196F3 0%, #42A5F5 100%); width: 70%">
                     <span>HTML5</span>
                 </div>
-                <div class="skill-bar-percent">80%</div>
+                <div class="skill-bar-percent">70%</div>
             </div>
         </div>
         
@@ -901,26 +843,8 @@
             
             
             
-            <a href="/tags/%E6%8E%92%E5%BA%8F/">
-                <span class="chip center-align waves-effect waves-light chip-default">排序</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E7%AE%97%E6%B3%95/">
-                <span class="chip center-align waves-effect waves-light chip-default">算法</span>
-            </a>
-            
-            
-            
             <a href="/tags/java/">
                 <span class="chip center-align waves-effect waves-light chip-default">java</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/">
-                <span class="chip center-align waves-effect waves-light chip-default">蓝桥杯</span>
             </a>
             
             
@@ -939,6 +863,24 @@
             
             <a href="/tags/javaweb/">
                 <span class="chip center-align waves-effect waves-light chip-default">javaweb</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/">
+                <span class="chip center-align waves-effect waves-light chip-default">蓝桥杯</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E6%8E%92%E5%BA%8F/">
+                <span class="chip center-align waves-effect waves-light chip-default">排序</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                <span class="chip center-align waves-effect waves-light chip-default">算法</span>
             </a>
             
             
@@ -1060,7 +1002,7 @@
     
 
     <div class="container row center-align"
-         style="margin-bottom: 0px !important;">
+         style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
@@ -1069,7 +1011,14 @@
             <a href="/about" target="_blank">hcl</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+
+             <br>
+                        <span id="sitetime"></span></span><span class="my-face">ღゝ◡╹)ノ♡</span>
+
             <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">9.7k</span>
             
             
             
@@ -1080,6 +1029,8 @@
                 &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
                     <span id="busuanzi_value_site_pv" class="white-color"></span>
             </span>
+
+
             
             
                 <span id="busuanzi_container_site_uv">
@@ -1090,6 +1041,96 @@
             <br>
 
             <!-- 运行天数提醒. -->
+            
+<!--                 <span id="sitetime"> Loading ...</span> -->
+<!--                 <script> -->
+                <script language=javascript>
+                    function siteTime() {
+                        window.setTimeout("siteTime()", 1000);
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+                        year - 作为date对象的年份，为4位年份值
+                        month - 0-11之间的整数，做为date对象的月份
+                        day - 1-31之间的整数，做为date对象的天数
+                        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+                        minutes - 0-59之间的整数，做为date对象的分钟数
+                        seconds - 0-59之间的整数，做为date对象的秒数
+                        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+                        var t1 = Date.UTC(2022, 10, 21, 00, 00, 00); //北京时间2018-2-13 00:00:00
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+                        document.getElementById("sitetime").innerHTML = "本站已勉强运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+                    siteTime();
+//                 </script>
+
+<!-- //                     var calcSiteTime = function () { -->
+<!-- //                         var seconds = 1000; -->
+<!-- //                         var minutes = seconds * 60; -->
+<!-- //                         var hours = minutes * 60; -->
+<!-- //                         var days = hours * 24; -->
+<!-- //                         var years = days * 365; -->
+<!-- //                         var today = new Date(); -->
+<!-- //                         var startYear = "2022"; -->
+<!-- //                         var startMonth = "10"; -->
+<!-- //                         var startDate = "21"; -->
+<!-- //                         var startHour = "0"; -->
+<!-- //                         var startMinute = "0"; -->
+<!-- //                         var startSecond = "0"; -->
+<!-- //                         var todayYear = today.getFullYear(); -->
+<!-- //                         var todayMonth = today.getMonth() + 1; -->
+<!-- //                         var todayDate = today.getDate(); -->
+<!-- //                         var todayHour = today.getHours(); -->
+<!-- //                         var todayMinute = today.getMinutes(); -->
+<!-- //                         var todaySecond = today.getSeconds(); -->
+<!-- //                         var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond); -->
+<!-- //                         var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond); -->
+<!-- //                         var diff = t2 - t1; -->
+<!-- //                         var diffYears = Math.floor(diff / years); -->
+<!-- //                         var diffDays = Math.floor((diff / days) - diffYears * 365); -->
+<!-- //  -->
+<!-- //                         // 区分是否有年份. -->
+<!-- //                         var language = 'zh-CN'; -->
+<!-- //                         if (startYear === String(todayYear)) { -->
+<!-- //                             document.getElementById("year").innerHTML = todayYear; -->
+<!-- //                             var daysTip = 'This site has been running for ' + diffDays + ' days'; -->
+<!-- //                             if (language === 'zh-CN') { -->
+<!-- //                                 daysTip = '本站已安全运行 ' + diffDays + ' 天'; -->
+<!-- //                             } else if (language === 'zh-HK') { -->
+<!-- //                                 daysTip = '本站已運行 ' + diffDays + ' 天'; -->
+<!-- //                             } -->
+<!-- //                             document.getElementById("sitetime").innerHTML = daysTip; -->
+<!-- //                         } else { -->
+<!-- //                             document.getElementById("year").innerHTML = startYear + " - " + todayYear; -->
+<!-- //                             var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and ' -->
+<!-- //                                 + diffDays + ' days'; -->
+<!-- //                             if (language === 'zh-CN') { -->
+<!-- //                                 yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天'; -->
+<!-- //                             } else if (language === 'zh-HK') { -->
+<!-- //                                 yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天'; -->
+<!-- //                             } -->
+<!-- //                             document.getElementById("sitetime").innerHTML = yearsAndDaysTip; -->
+<!-- //                         } -->
+<!-- //                     } -->
+<!-- //  -->
+<!-- //                     calcSiteTime(); -->
+                </script>
             
             <br>
             
@@ -1120,10 +1161,6 @@
 
 
 
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
 
 </div>
     </div>

@@ -72,7 +72,9 @@ v">
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
 
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
 
 
 
@@ -416,7 +418,17 @@ v">
                 
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.2k
+                </div>
+                
 
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    16 分
+                </div>
                 
 
                 
@@ -940,27 +952,27 @@ v">
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class BufferedReaderTest &#123;
-    public static void main(String[] args) throws IOException &#123;
-        InputStreamReader is &#x3D; new InputStreamReader(System.in);
-        BufferedReader buf &#x3D; new BufferedReader(is);
-        System.out.print(&quot;read()方法输入：&quot;);
-        int read &#x3D; buf.read(); &#x2F;&#x2F;read()方法输入
-        int read1 &#x3D; buf.read();&#x2F;&#x2F;读取换行符，防止被readLine()读取到
-        System.out.print(&quot;readLine()方法输入：&quot;);
-        String s &#x3D; buf.readLine();&#x2F;&#x2F;readLine()方法开始输入
-        char[] a&#x3D;new char[10];
-        System.out.print(&quot;read(char cbuf[], int off, int len)方法输入：&quot;);
-        int num &#x3D; buf.read(a, 0, 10);&#x2F;&#x2F; read(char cbuf[], int off, int len)方法输入
+public class BufferedReaderTest {
+    public static void main(String[] args) throws IOException {
+        InputStreamReader is = new InputStreamReader(System.in);
+        BufferedReader buf = new BufferedReader(is);
+        System.out.print("read()方法输入：");
+        int read = buf.read(); //read()方法输入
+        int read1 = buf.read();//读取换行符，防止被readLine()读取到
+        System.out.print("readLine()方法输入：");
+        String s = buf.readLine();//readLine()方法开始输入
+        char[] a=new char[10];
+        System.out.print("read(char cbuf[], int off, int len)方法输入：");
+        int num = buf.read(a, 0, 10);// read(char cbuf[], int off, int len)方法输入
 
-        System.out.println(&quot;read()方法输出：&quot;+(char) read);
-        System.out.println(&quot;readLine()方法输出：&quot;+s);
-        System.out.print(&quot;read(char cbuf[], int off, int len)方法输出：&quot;);
-        for(char c:a)&#123;
+        System.out.println("read()方法输出："+(char) read);
+        System.out.println("readLine()方法输出："+s);
+        System.out.print("read(char cbuf[], int off, int len)方法输出：");
+        for(char c:a){
             System.out.print(c);
-        &#125;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        }
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>输出内容如下：<img src="https://s2.loli.net/2022/11/09/64u5GSQn7R8POwd.png" alt="image-20221109182524512"></p>
 <p><strong>注意</strong></p>
@@ -1019,35 +1031,35 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.StreamTokenizer;
 
-public class StreamTokenizerTest &#123;
-    public static void main(String[] args) throws IOException &#123;
-        StreamTokenizer in &#x3D; new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
+public class StreamTokenizerTest {
+    public static void main(String[] args) throws IOException {
+        StreamTokenizer in = new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
 
-        System.out.print(&quot;字符串输入：&quot;);
-        in.nextToken(); &#x2F;&#x2F; 解析下一个标记。每次调用sval或nval时候都需要调用一下
-        String str &#x3D; in.sval; &#x2F;&#x2F; 输入字符串
-        System.out.println(&quot;字符串输出:&quot;+str);
+        System.out.print("字符串输入：");
+        in.nextToken(); // 解析下一个标记。每次调用sval或nval时候都需要调用一下
+        String str = in.sval; // 输入字符串
+        System.out.println("字符串输出:"+str);
 
-        System.out.print(&quot;数字输入：&quot;);
-        in.nextToken(); &#x2F;&#x2F; 解析下一个标记。每次调用sval或nval时候都需要调用一下
-        double num &#x3D; in.nval; &#x2F;&#x2F; 输入数字
-        System.out.println(&quot;数字输出：&quot;+num);
+        System.out.print("数字输入：");
+        in.nextToken(); // 解析下一个标记。每次调用sval或nval时候都需要调用一下
+        double num = in.nval; // 输入数字
+        System.out.println("数字输出："+num);
 
-        &#x2F;** 循环输入字符串 *&#x2F;
-            while (in.nextToken() !&#x3D; StreamTokenizer.TT_EOL) &#123; &#x2F;&#x2F; 当下一个输入不是行末尾时
-                String str2 &#x3D; in.sval; &#x2F;&#x2F; 输入字符串
+        /** 循环输入字符串 */
+            while (in.nextToken() != StreamTokenizer.TT_EOL) { // 当下一个输入不是行末尾时
+                String str2 = in.sval; // 输入字符串
                 System.out.println(str2);
-            &#125;
+            }
 
 
-        &#x2F;** 循环输入数字 *&#x2F;
-            while (in.nextToken() !&#x3D; StreamTokenizer.TT_EOL) &#123; &#x2F;&#x2F; 当下一个输入不是行末尾时
-                double num2 &#x3D; in.nval; &#x2F;&#x2F; 输入数字
+        /** 循环输入数字 */
+            while (in.nextToken() != StreamTokenizer.TT_EOL) { // 当下一个输入不是行末尾时
+                double num2 = in.nval; // 输入数字
                 System.out.println(num2);
-            &#125;
+            }
 
-    &#125;
-&#125;
+    }
+}
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 <ul>
@@ -1399,7 +1411,54 @@ public class StreamTokenizerTest &#123;
 </tbody></table>
 </li>
 <li><h3 id="Collections工具类"><a href="#Collections工具类" class="headerlink" title="Collections工具类"></a>Collections工具类</h3></li>
+<li><h3 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h3></li>
 </ul>
+<ol>
+<li><h4 id="String"><a href="#String" class="headerlink" title="String"></a><em>String</em></h4></li>
+</ol>
+<ul>
+<li><p><strong>String转换为char[]</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">String string = "abc" ;
+char [] stringArr = string.toCharArray();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p><strong>String转换为ArrayList&lt; String &gt;</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">String str="1,2,3,4,5";
+ArrayList&lt;String&gt; d = new ArrayList(Arrays.asList(str.split(",")));
+System.out.println(str);
+System.out.println(d);
+ //output
+    //1,2,3,4,5
+	//[1, 2, 3, 4, 5]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><strong>String转换为List&lt; String &gt;</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">String ids="1,2,3,4,5,6,7,8,9";
+List&lt;String&gt; list = Arrays.asList(ids.split(","));
+System.out.println(ids);
+System.out.println(list);
+//output
+//        1,2,3,4,5,6,7,8,9
+//        [1, 2, 3, 4, 5, 6, 7, 8, 9]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+</li>
+<li><p><strong>String转换为整数类型和浮点类型</strong></p>
+</li>
+<li><p><strong>String转换为byte [ ]</strong></p>
+</li>
+<li><p><strong>String(时间字符串)转换为Date类型</strong></p>
+</li>
+<li><p><strong>String 的json 转换为List&lt;实体&gt;</strong></p>
+</li>
+<li><p><strong>String转JsonObject对象</strong></p>
+</li>
+</ul>
+<ol>
+<li><h4 id="Char"><a href="#Char" class="headerlink" title="Char[ ]"></a><em>Char</em>[ ]</h4></li>
+<li><h4 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a><em>ArrayList</em></h4></li>
+<li><h4 id="String-1"><a href="#String-1" class="headerlink" title="String[ ]"></a><em>String</em>[ ]</h4></li>
+<li><h4 id="List"><a href="#List" class="headerlink" title="List"></a><em>List</em></h4></li>
+<li><h4 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a><em>基本数据类型</em></h4></li>
+</ol>
 
                 
             </div>
@@ -2120,7 +2179,7 @@ new Valine({
     
 
     <div class="container row center-align"
-         style="margin-bottom: 0px !important;">
+         style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
@@ -2129,7 +2188,14 @@ new Valine({
             <a href="/about" target="_blank">hcl</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+
+             <br>
+                        <span id="sitetime"></span></span><span class="my-face">ღゝ◡╹)ノ♡</span>
+
             <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">9.7k</span>
             
             
             
@@ -2140,6 +2206,8 @@ new Valine({
                 &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
                     <span id="busuanzi_value_site_pv" class="white-color"></span>
             </span>
+
+
             
             
                 <span id="busuanzi_container_site_uv">
@@ -2150,6 +2218,96 @@ new Valine({
             <br>
 
             <!-- 运行天数提醒. -->
+            
+<!--                 <span id="sitetime"> Loading ...</span> -->
+<!--                 <script> -->
+                <script language=javascript>
+                    function siteTime() {
+                        window.setTimeout("siteTime()", 1000);
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+                        year - 作为date对象的年份，为4位年份值
+                        month - 0-11之间的整数，做为date对象的月份
+                        day - 1-31之间的整数，做为date对象的天数
+                        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+                        minutes - 0-59之间的整数，做为date对象的分钟数
+                        seconds - 0-59之间的整数，做为date对象的秒数
+                        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+                        var t1 = Date.UTC(2022, 10, 21, 00, 00, 00); //北京时间2018-2-13 00:00:00
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+                        document.getElementById("sitetime").innerHTML = "本站已勉强运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+                    siteTime();
+//                 </script>
+
+<!-- //                     var calcSiteTime = function () { -->
+<!-- //                         var seconds = 1000; -->
+<!-- //                         var minutes = seconds * 60; -->
+<!-- //                         var hours = minutes * 60; -->
+<!-- //                         var days = hours * 24; -->
+<!-- //                         var years = days * 365; -->
+<!-- //                         var today = new Date(); -->
+<!-- //                         var startYear = "2022"; -->
+<!-- //                         var startMonth = "10"; -->
+<!-- //                         var startDate = "21"; -->
+<!-- //                         var startHour = "0"; -->
+<!-- //                         var startMinute = "0"; -->
+<!-- //                         var startSecond = "0"; -->
+<!-- //                         var todayYear = today.getFullYear(); -->
+<!-- //                         var todayMonth = today.getMonth() + 1; -->
+<!-- //                         var todayDate = today.getDate(); -->
+<!-- //                         var todayHour = today.getHours(); -->
+<!-- //                         var todayMinute = today.getMinutes(); -->
+<!-- //                         var todaySecond = today.getSeconds(); -->
+<!-- //                         var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond); -->
+<!-- //                         var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond); -->
+<!-- //                         var diff = t2 - t1; -->
+<!-- //                         var diffYears = Math.floor(diff / years); -->
+<!-- //                         var diffDays = Math.floor((diff / days) - diffYears * 365); -->
+<!-- //  -->
+<!-- //                         // 区分是否有年份. -->
+<!-- //                         var language = 'zh-CN'; -->
+<!-- //                         if (startYear === String(todayYear)) { -->
+<!-- //                             document.getElementById("year").innerHTML = todayYear; -->
+<!-- //                             var daysTip = 'This site has been running for ' + diffDays + ' days'; -->
+<!-- //                             if (language === 'zh-CN') { -->
+<!-- //                                 daysTip = '本站已安全运行 ' + diffDays + ' 天'; -->
+<!-- //                             } else if (language === 'zh-HK') { -->
+<!-- //                                 daysTip = '本站已運行 ' + diffDays + ' 天'; -->
+<!-- //                             } -->
+<!-- //                             document.getElementById("sitetime").innerHTML = daysTip; -->
+<!-- //                         } else { -->
+<!-- //                             document.getElementById("year").innerHTML = startYear + " - " + todayYear; -->
+<!-- //                             var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and ' -->
+<!-- //                                 + diffDays + ' days'; -->
+<!-- //                             if (language === 'zh-CN') { -->
+<!-- //                                 yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天'; -->
+<!-- //                             } else if (language === 'zh-HK') { -->
+<!-- //                                 yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天'; -->
+<!-- //                             } -->
+<!-- //                             document.getElementById("sitetime").innerHTML = yearsAndDaysTip; -->
+<!-- //                         } -->
+<!-- //                     } -->
+<!-- //  -->
+<!-- //                     calcSiteTime(); -->
+                </script>
             
             <br>
             
@@ -2180,10 +2338,6 @@ new Valine({
 
 
 
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
 
 </div>
     </div>
