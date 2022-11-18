@@ -354,6 +354,19 @@ v">
 </header>
 
     
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
 
 
 
@@ -1414,9 +1427,7 @@ public class StreamTokenizerTest {
 <li><h3 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h3></li>
 </ul>
 <ol>
-<li><h4 id="String"><a href="#String" class="headerlink" title="String"></a><em>String</em></h4></li>
-</ol>
-<ul>
+<li><h4 id="String"><a href="#String" class="headerlink" title="String"></a><em>String</em></h4><ul>
 <li><p><strong>String转换为char[]</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">String string = "abc" ;
 char [] stringArr = string.toCharArray();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -1435,7 +1446,7 @@ System.out.println(d);
 List&lt;String&gt; list = Arrays.asList(ids.split(","));
 System.out.println(ids);
 System.out.println(list);
-//output
+//outinput
 //        1,2,3,4,5,6,7,8,9
 //        [1, 2, 3, 4, 5, 6, 7, 8, 9]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
@@ -1452,13 +1463,16 @@ System.out.println(list);
 <li><p><strong>String转JsonObject对象</strong></p>
 </li>
 </ul>
-<ol>
+</li>
 <li><h4 id="Char"><a href="#Char" class="headerlink" title="Char[ ]"></a><em>Char</em>[ ]</h4></li>
 <li><h4 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a><em>ArrayList</em></h4></li>
 <li><h4 id="String-1"><a href="#String-1" class="headerlink" title="String[ ]"></a><em>String</em>[ ]</h4></li>
 <li><h4 id="List"><a href="#List" class="headerlink" title="List"></a><em>List</em></h4></li>
 <li><h4 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a><em>基本数据类型</em></h4></li>
 </ol>
+<ul>
+<li><h3 id="字符串反转"><a href="#字符串反转" class="headerlink" title="字符串反转"></a>字符串反转</h3></li>
+</ul>
 
                 
             </div>
