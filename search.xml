@@ -8,7 +8,7 @@
       <link href="/2022/11/18/shua-ti-zong-jie/"/>
       <url>/2022/11/18/shua-ti-zong-jie/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<ul><li><code>Math.round()</code>方法，对<code>double</code>类型取四舍五入</li><li><code>StringBuffer</code>中的<code>reverse()</code>方法，对字符串进行反转时，会把原字符串也进行反转，建议先将原字符串储存</li><li>必须是相同的数据类型才能用<code>equals()</code>方法</li><li><code>Arrays.sort(int[] a,int left,int right)</code>方法，对数组固定区间进行排序时，区间长度左闭右开，也就是说<code>a[right]</code>不在排序范围内（切记）</li></ul>]]></content>
       
       
       <categories>
