@@ -430,14 +430,14 @@ git
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    813
+                    958
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -528,13 +528,23 @@ hexo d      //将代码提交到远程仓库<span aria-hidden="true" class="line
 </ul>
 <p>	</p>
 </li>
-<li><h3 id="未完待续。。。"><a href="#未完待续。。。" class="headerlink" title="[未完待续。。。]"></a>[未完待续。。。]</h3></li>
 <li><h3 id="网站提速"><a href="#网站提速" class="headerlink" title="网站提速"></a>网站提速</h3><ul>
 <li>将主题目录下的_config.yml文件中的js和css中的内容替换成国内的CDN。</li>
 <li>适当压缩资源中的图片。</li>
 </ul>
 </li>
+<li><h3 id="更新博客"><a href="#更新博客" class="headerlink" title="更新博客"></a>更新博客</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">#使用以下命令
+hexo clean #清除了你之前生成的东西
+hexo generate #生成静态文章,简写 hexo g
+hexo deploy #部署文章,简写 hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+</li>
+<li><h3 id="图床问题（待验证）"><a href="#图床问题（待验证）" class="headerlink" title="图床问题（待验证）"></a>图床问题（待验证）</h3></li>
 </ul>
+<blockquote>
+<p>今天在Typora上传图片是突然发现图片上传失败，我使用的图床配置是<code>pic-core+SM.MS</code>，突然想起来前两天因为跑前端项目更改过node版本，之前用的是<code>16.18.0</code>版本，更改为了<code>14.16.0</code>版本。</p>
+<p>猜想是这个原因，所以使用nvm重新更改了node版本，结果上传成功。</p>
+</blockquote>
 
                 
             </div>
@@ -1284,7 +1294,7 @@ new Valine({
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">11.5k</span>
+                        class="white-color">13.4k</span>
             
             
             
